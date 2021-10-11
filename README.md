@@ -28,7 +28,7 @@ Seasonality of the prices must be taken into account, and to reach the final exp
 
 # Data product
 
-The final result is presented as a dashboard (house-sales-analytics.herokuapp.com) answering the questions:
+The final result is presented as a dashboard (https://house-sales-analytics.herokuapp.com/) answering the questions:
 
 1. Which houses to buy?
 
