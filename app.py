@@ -121,7 +121,7 @@ low_price, high_price = st.slider('Price range (x 1000)',
                                   value = (min_price, max_price))
 low_price *= 1000
 high_price *= 1000
-st.write('View prices between ${:,.2f} and $ {:,.2f}'.format(low_price, high_price))
+st.write(f'Filter houses with price between \${low_price:,.2f} and \${high_price:,.2f}')
 
 filtered_houses = buy_recom[(buy_recom['price'] >= low_price) & (buy_recom['price'] <= high_price)]
 
@@ -129,7 +129,8 @@ fig = px.scatter_mapbox(filtered_houses,
                         lat = 'lat', lon = 'long', 
                         hover_name = 'id', 
                         hover_data = ['price', 'grade', 'condition'], 
-                        color = 'price', 
+                        color = 'price',
+                        color_continuous_scale = 'viridis',
                         zoom = 9, 
                         height = 300)
 fig.update_layout(mapbox_style = 'open-street-map', 
