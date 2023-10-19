@@ -192,3 +192,15 @@ axs[1].set_xlabel('Floors')
 axs[1].set_ylabel('Average price ($ thousand)')
 fig.tight_layout()
 st.pyplot(fig)
+
+# Seasonality
+aux = df5[df5['zipcode'] == zipcode]
+aux = aux[['month', 'price']].groupby('month').mean().reset_index()
+aux['price'] = aux['price']/1000
+
+fig, ax = plt.subplots()
+sns.lineplot(data = aux, x = 'month', y = 'price', ax = ax)
+ax.set_xlabel('Month')
+ax.set_ylabel('Average price ($ thousand)')
+fig.tight_layout()
+st.pyplot(fig)
